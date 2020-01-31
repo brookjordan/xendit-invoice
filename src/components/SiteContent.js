@@ -13,7 +13,7 @@ import {
 class App extends React.Component {
   render() {
     return (
-      <main class="site-content">
+      <main className="site-content">
         <Switch>
           <Route path="/items">
             <Items />

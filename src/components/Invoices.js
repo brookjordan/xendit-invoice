@@ -1,20 +1,24 @@
 import React from "react";
+import Invoice from "./Invoice";
 
 class App extends React.Component {
+  componentDidMount() {
+    fetch("http://localhost:5000/invoice")
+    .then((invoiceDataBuffer) => invoiceDataBuffer.json())
+    .then(invoiceData => {
+      this.setState({ invoices: invoiceData });
+    });
+  }
+
   render() {
+    let invoices = (this.state && this.state.invoices) || [];
     return <>
       <h2>Invoices</h2>
-      <ul>
-        <li>Invoice 1</li>
-        <li>Invoice 2</li>
-        <li>Invoice 3</li>
-        <li>Invoice 4</li>
-        <li>Invoice 5</li>
-        <li>Invoice 6</li>
-        <li>Invoice 7</li>
-        <li>Invoice 8</li>
-        <li>Invoice 9</li>
-      </ul>
+      <ul className="all-invoices">{
+        invoices.map(invoice => (
+          <Invoice key={invoice.id} invoice={invoice} />
+        ))
+      }</ul>
     </>;
   };
 }

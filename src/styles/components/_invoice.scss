@@ -1,0 +1,17 @@
+.all-invoices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin: 0 -10px;
+}
+
+.invoice-card {
+  padding: 10px;
+  margin: 10px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 1px 5px rgb(75 90 126 / 0.14);
+
+  &__title {
+    font-weight: 600;
+  }
+}

@@ -1,7 +1,7 @@
 {
   "name": "xendit-invoices",
   "version": "0.1.0",
-  "author": "brook@brook.dev",
+  "author": "Brook Jordan <brook@brook.dev>",
   "description": "Xendit system for creating invoices",
   "license": "MIT",
   "dependencies": {
