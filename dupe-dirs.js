@@ -8,11 +8,13 @@ const routes = [
   "customers",
 ];
 
-fs.readFile(path.join(__dirname, "build", "index.html"), (err, data) => {
+const buildDirectory = path.join(__dirname, "build");
+
+fs.readFile(path.join(buildDirectory, "index.html"), (err, data) => {
   let contents = data.toString();
 
   routes.forEach(route => {
-    let dir = path.join(__dirname, "build", route);
+    let dir = path.join(buildDirectory, route);
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir);
     }
