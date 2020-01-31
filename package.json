@@ -6,9 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev:styles": "sass src/styles:public/styles --watch",
-
     "build:styles": "sass src/styles:public/styles",
-    "build:prod": "npm run build:styles"
+    "build:prod": "node build.js"
   },
   "repository": {
     "type": "git",
@@ -24,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/brookjordan/xendit-invoice/issues"
   },
-  "homepage": "https://github.com/brookjordan/xendit-invoice#readme"
+  "homepage": "https://github.com/brookjordan/xendit-invoice#readme",
+  "devDependencies": {
+    "sass": "^1.25.0"
+  }
 }
