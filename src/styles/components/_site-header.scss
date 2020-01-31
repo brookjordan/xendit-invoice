@@ -1,0 +1,23 @@
+@use "../variables/svg-urls" as svg;
+
+.site-header {
+  display: flex;
+  padding: 10px 20px;
+  align-items: center;
+
+  &__company-name {
+    content: "";
+    display: block;
+    background-image: url(svg.$xendit-logo);
+    width: 138px;
+    height: 40px;
+  }
+
+  &__app-name {
+    margin-left: 15px;
+    color: white;
+    font-size: 30px;
+    font-weight: 600;
+  }
+}
+

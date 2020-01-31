@@ -1,0 +1,14 @@
+@use "../variables/base-colors" as c;
+
+html {
+  font-family: "Montserrat", 'Roboto', sans-serif;
+  font-size: 20px;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-image: linear-gradient(to bottom right, c.$blue, c.$cyan);
+}

@@ -4,7 +4,11 @@
   "description": "Xendit system for creating invoices",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:styles": "sass src/styles:public/styles --watch",
+
+    "build:styles": "sass src/styles:public/styles",
+    "build:prod": "npm run build:styles"
   },
   "repository": {
     "type": "git",
