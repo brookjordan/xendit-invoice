@@ -1,0 +1,24 @@
+{
+  "name": "xendit-invoice",
+  "version": "1.0.0",
+  "description": "Xendit system for creating invoices",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brookjordan/xendit-invoice.git"
+  },
+  "keywords": [
+    "xendit",
+    "preassessment",
+    "invoice"
+  ],
+  "author": "brook@brook.dev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brookjordan/xendit-invoice/issues"
+  },
+  "homepage": "https://github.com/brookjordan/xendit-invoice#readme"
+}
