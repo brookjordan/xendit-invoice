@@ -1,30 +1,43 @@
 {
-  "name": "xendit-invoice",
-  "version": "1.0.0",
+  "name": "xendit-invoices",
+  "version": "0.1.0",
+  "author": "brook@brook.dev",
   "description": "Xendit system for creating invoices",
-  "main": "index.html",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev:styles": "sass src/styles:public/styles --watch",
-    "build:styles": "sass src/styles:public/styles",
-    "build:prod": "node build.js"
+  "license": "MIT",
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.3.1",
+    "sass": "^1.25.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/brookjordan/xendit-invoice.git"
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build && node dupe-dir.js",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "keywords": [
     "xendit",
     "preassessment",
     "invoice"
-  ],
-  "author": "brook@brook.dev",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/brookjordan/xendit-invoice/issues"
-  },
-  "homepage": "https://github.com/brookjordan/xendit-invoice#readme",
-  "devDependencies": {
-    "sass": "^1.25.0"
-  }
+  ]
 }
