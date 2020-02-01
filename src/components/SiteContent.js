@@ -1,10 +1,12 @@
 import React from "react";
+import Home from "./Home";
+import LogIn from "./LogIn";
+import SignUp from "./SignUp";
 import Items from "./Items";
 import Invoices from "./Invoices";
 import Payments from "./Payments";
 import Refunds from "./Refunds";
 import Customers from "./Customers";
-import Home from "./Home";
 import {
   Switch,
   Route,
@@ -15,6 +17,14 @@ class App extends React.Component {
     return (
       <main className="site-content">
         <Switch>
+          <Route path="/log-in">
+            <LogIn />
+          </Route>
+
+          <Route path="/sign-up">
+            <SignUp />
+          </Route>
+
           <Route path="/items">
             <Items />
           </Route>

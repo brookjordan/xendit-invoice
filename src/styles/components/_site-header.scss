@@ -1,9 +1,17 @@
 @use "../variables/svg-urls" as svg;
+@use "../mixins/buttons" as button;
 
 .site-header {
   display: flex;
   padding: 10px 20px;
   align-items: center;
+  justify-content: space-between;
+
+  &__site-details,
+  &__account {
+    display: flex;
+    align-items: center;
+  }
 
   &__company-name {
     content: "";
@@ -18,6 +26,11 @@
     color: white;
     font-size: 30px;
     font-weight: 600;
+  }
+
+  &__link {
+    @include button.navigation;
+    color: white;
   }
 }
 

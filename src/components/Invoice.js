@@ -13,7 +13,7 @@ class App extends React.Component {
     let invoice = this.props.invoice || {};
     let invoiceLines = (this.state && this.state.invoiceLines) || [];
     return <li className="invoice-card">
-      <h4 class="invoice-card__title">{invoice.label}</h4>
+      <h4 className="invoice-card__title">{invoice.label}</h4>
       <ul>{
         invoiceLines.map(invoiceLine => (
           <li key={invoiceLine.id} className="invoice-card__line invoice-line">
