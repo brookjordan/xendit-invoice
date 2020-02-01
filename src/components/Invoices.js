@@ -1,9 +1,10 @@
 import React from "react";
 import Invoice from "./Invoice";
+import { apiURL } from "../helpers/base-url";
 
 class App extends React.Component {
   componentDidMount() {
-    fetch("https://xendit-invoicer.herokuapp.com/invoice")
+    fetch(`${apiURL}/invoice`)
     .then((invoiceDataBuffer) => invoiceDataBuffer.json())
     .then(invoiceData => {
       this.setState({ invoices: invoiceData });

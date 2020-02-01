@@ -2,6 +2,7 @@ import React from "react";
 import {
   Redirect,
 } from "react-router-dom";
+import { apiURL } from "../helpers/base-url";
 
 class App extends React.Component {
   constructor() {
@@ -37,15 +38,15 @@ class App extends React.Component {
 
     let response;
     try {
-      response = await fetch('https://xendit-invoicer.herokuapp.com/account', {
-        method: 'POST',
+      response = await fetch(`${apiURL}/account`, {
+        method: "POST",
         body: JSON.stringify({
           name,
           email,
           password,
         }),
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json"
         },
       }).then((payload) => payload.json());
     } catch (error) {
@@ -68,7 +69,7 @@ class App extends React.Component {
 
   render() {
     if (this.state.signupWasSuccessful === true) {
-      return <Redirect to='/' />
+      return <Redirect to="/" />
     }
 
     return (
