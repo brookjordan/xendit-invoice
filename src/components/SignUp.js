@@ -40,9 +40,9 @@ class App extends React.Component {
       response = await fetch('https://xendit-invoicer.herokuapp.com/account', {
         method: 'POST',
         body: JSON.stringify({
+          name,
           email,
           password,
-          fullname: name,
         }),
         headers: {
           'Content-Type': 'application/json'
