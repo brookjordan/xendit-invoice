@@ -6,11 +6,14 @@ import "../styles/app.scss";
 
 class SiteHeader extends React.Component {
   render() {
-    let authButton;
+    let authButtons;
     if (this.props.user) {
-      authButton = <button onClick={this.props.logOut} className="site-header__link">Log out</button>;
+      authButtons = <button onClick={this.props.logOut} className="site-header__link">Log out</button>;
     } else {
-      authButton = <Link to="/log-in" className="site-header__link">Log in</Link>;
+      authButtons = <>
+        <Link to="/log-in" className="site-header__link">Log in</Link>
+        <Link to="/sign-up" className="site-header__link">Sign up</Link>
+      </>;
     }
 
     return (
@@ -21,8 +24,7 @@ class SiteHeader extends React.Component {
         </div>
 
         <div className="site-header__account">
-          {authButton}
-          <Link to="/sign-up" className="site-header__link">Sign up</Link>
+          {authButtons}
         </div>
       </header>
     );
