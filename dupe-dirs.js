@@ -7,6 +7,7 @@ const routes = [
   "refunds",
   "customers",
   "sign-up",
+  "log-in",
 ];
 
 const buildDirectory = path.join(__dirname, "build");

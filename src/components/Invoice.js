@@ -3,7 +3,7 @@ import { apiURL } from "../helpers/base-url";
 
 class App extends React.Component {
   componentDidMount() {
-    fetch(`${apiURL}/invoice_line`)
+    fetch(`${apiURL}/invoice_line`, { credentials: 'include' })
     .then((invoiceLineDataBuffer) => invoiceLineDataBuffer.json())
     .then(invoiceLineData => {
       this.setState({ invoiceLines: invoiceLineData });

@@ -3,6 +3,8 @@ import SiteHeader from "./SiteHeader";
 import SiteNavigation from "./SiteNavigation";
 import SiteContent from "./SiteContent";
 import SiteFooter from "./SiteFooter";
+import { store } from "../helpers/store";
+import { apiURL } from "../helpers/base-url";
 
 import {
   BrowserRouter as Router,
@@ -10,6 +12,14 @@ import {
 import "../styles/app.scss";
 
 export default class App extends React.Component {
+  constructor() {
+    super(...arguments);
+
+    store.user = fetch(`${apiURL}/auth-status`, { credentials: 'include' })
+    .then((payload) => payload.json())
+    .then((data) => data.user);
+  }
+
   render() {
     return (
       <Router>

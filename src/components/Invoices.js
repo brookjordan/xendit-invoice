@@ -3,8 +3,16 @@ import Invoice from "./Invoice";
 import { apiURL } from "../helpers/base-url";
 
 class App extends React.Component {
+  constructor() {
+    super(...arguments);
+
+    this.state = {
+      invoices: null,
+    };
+  }
+
   componentDidMount() {
-    fetch(`${apiURL}/invoice`)
+    fetch(`${apiURL}/invoice`, { credentials: 'include' })
     .then((invoiceDataBuffer) => invoiceDataBuffer.json())
     .then(invoiceData => {
       this.setState({ invoices: invoiceData });
@@ -12,7 +20,7 @@ class App extends React.Component {
   }
 
   render() {
-    let invoices = (this.state && this.state.invoices) || [];
+    let invoices = this.state.invoices || [];
     return <>
       <h2>Invoices</h2>
       <ul className="all-invoices">{
