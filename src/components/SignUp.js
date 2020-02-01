@@ -37,7 +37,7 @@ class App extends React.Component {
 
     let response;
     try {
-      response = await fetch('http://localhost:5000/account', {
+      response = await fetch('https://xendit-invoicer.herokuapp.com/account', {
         method: 'POST',
         body: JSON.stringify({
           email,

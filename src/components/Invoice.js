@@ -2,7 +2,7 @@ import React from "react";
 
 class App extends React.Component {
   componentDidMount() {
-    fetch("http://localhost:5000/invoice_line")
+    fetch("https://xendit-invoicer.herokuapp.com/invoice_line")
     .then((invoiceLineDataBuffer) => invoiceLineDataBuffer.json())
     .then(invoiceLineData => {
       this.setState({ invoiceLines: invoiceLineData });
