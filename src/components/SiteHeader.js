@@ -1,38 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Link,
 } from "react-router-dom";
-import { store } from "../helpers/store";
 import "../styles/app.scss";
 
-class App extends React.Component {
-  constructor() {
-    super(...arguments);
-
-    this.state = {
-      authenticated: false,
-    };
-  }
-
-  logout() {
-    fetch('http://localhost:5000/logout', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      credentials: 'include',
-    });
-    this.setState({ authenticated: false });
-    store.user = Promise.resolve();
-  }
-
-  componentDidMount() {
-    store.user.then(user => {
-      this.setState({ authenticated: !!user });
-    });
-  }
-
+class SiteHeader extends React.Component {
   render() {
+    let authButton;
+    if (this.props.user) {
+      authButton = <button onClick={this.props.logOut} className="site-header__link">Log out</button>;
+    } else {
+      authButton = <Link to="/log-in" className="site-header__link">Log in</Link>;
+    }
+
     return (
       <header className="site-header">
         <div className="site-header__site-details">
@@ -41,13 +21,7 @@ class App extends React.Component {
         </div>
 
         <div className="site-header__account">
-          {(() => {
-            if (this.state.authenticated) {
-              return <button onClick={this.logout.bind(this)} className="site-header__link">Log out</button>
-            } else {
-              return <Link to="/log-in" className="site-header__link">Log in</Link>
-            }
-          })()}
+          {authButton}
           <Link to="/sign-up" className="site-header__link">Sign up</Link>
         </div>
       </header>
@@ -55,4 +29,4 @@ class App extends React.Component {
   };
 }
 
-export default App;
+export default SiteHeader;

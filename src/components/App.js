@@ -3,7 +3,6 @@ import SiteHeader from "./SiteHeader";
 import SiteNavigation from "./SiteNavigation";
 import SiteContent from "./SiteContent";
 import SiteFooter from "./SiteFooter";
-import { store } from "../helpers/store";
 import { apiURL } from "../helpers/base-url";
 
 import {
@@ -15,9 +14,50 @@ export default class App extends React.Component {
   constructor() {
     super(...arguments);
 
-    store.user = fetch(`${apiURL}/auth-status`, { credentials: 'include' })
+    fetch(`${apiURL}/auth-status`, { credentials: 'include' })
     .then((payload) => payload.json())
-    .then((data) => data.user);
+    .then((data) => this.setState({
+      user: data.user || false,
+    }));
+
+    this.logOut = this.logOut.bind(this);
+    this.logIn = this.logIn.bind(this);
+
+    this.state = {
+      user: false,
+    };
+  }
+
+  logOut() {
+    fetch('http://localhost:5000/logout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      credentials: 'include',
+    });
+    this.setState({ user: false });
+  }
+
+  logIn(email, password) {
+    return fetch(`${apiURL}/login`, {
+      method: 'POST',
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      credentials: 'include',
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (!data.error && data.user) {
+        this.setState({ user: data.user });
+      }
+      return data;
+    });
   }
 
   render() {
@@ -25,11 +65,11 @@ export default class App extends React.Component {
       <Router>
         <div className="app-layout">
           <div className="app-layout__main">
-            <SiteContent />
+            <SiteContent logIn={this.logIn} />
           </div>
 
           <div className="app-layout__header">
-            <SiteHeader />
+            <SiteHeader user={this.state.user} logOut={this.logOut} />
           </div>
 
           <div className="app-layout__navigation">

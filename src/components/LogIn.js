@@ -37,18 +37,7 @@ class App extends React.Component {
 
     let payload;
     try {
-      let response = await fetch(`${apiURL}/login`, {
-        method: 'POST',
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        credentials: 'include',
-      });
-      payload = await response.json();
+      payload = await this.props.logIn(email, password);
     } catch (error) {
       this.setState({ loginError: "The server isn’t responding." });
       throw error;
@@ -57,7 +46,6 @@ class App extends React.Component {
     if (payload.error) {
       this.setState({ loginError: payload.error });
     } else {
-      store.user = Promise.resolve(payload.user);
       this.setState({ loginWasSuccessful: true });
     }
   }

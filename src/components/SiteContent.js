@@ -18,7 +18,7 @@ class App extends React.Component {
       <main className="site-content">
         <Switch>
           <Route path="/log-in">
-            <LogIn />
+            <LogIn logIn={this.props.logIn} />
           </Route>
 
           <Route path="/sign-up">
