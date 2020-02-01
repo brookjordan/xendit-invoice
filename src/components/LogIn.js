@@ -2,8 +2,6 @@ import React from "react";
 import {
   Redirect,
 } from "react-router-dom";
-import { apiURL } from "../helpers/base-url";
-import { store } from "../helpers/store";
 
 class App extends React.Component {
   constructor() {

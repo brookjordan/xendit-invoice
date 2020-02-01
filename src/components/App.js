@@ -29,7 +29,7 @@ export default class App extends React.Component {
   }
 
   logOut() {
-    fetch('http://localhost:5000/logout', {
+    fetch(`${apiURL}/logout`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
