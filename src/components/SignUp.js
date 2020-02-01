@@ -35,17 +35,23 @@ class App extends React.Component {
     }
     // End old browser stuff
 
-    let response = await fetch('http://localhost:5000/account', {
-      method: 'POST',
-      body: JSON.stringify({
-        email,
-        password,
-        fullname: name,
-      }),
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    }).then((payload) => payload.json());
+    let response;
+    try {
+      response = await fetch('http://localhost:5000/account', {
+        method: 'POST',
+        body: JSON.stringify({
+          email,
+          password,
+          fullname: name,
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      }).then((payload) => payload.json());
+    } catch (error) {
+      this.setState({ signupError: "The server isn’t responding." });
+      throw error;
+    }
 
     if (response.error) {
       this.setState({ signupError: response.error });
