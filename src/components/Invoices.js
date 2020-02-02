@@ -12,7 +12,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`${apiURL}/invoice`, { credentials: 'include' })
+    fetch(`${apiURL}/invoice`, { credentials: "include" })
     .then((invoiceDataBuffer) => invoiceDataBuffer.json())
     .then(invoiceData => {
       this.setState({ invoices: invoiceData });

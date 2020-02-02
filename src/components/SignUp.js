@@ -48,7 +48,7 @@ class App extends React.Component {
         headers: {
           "Content-Type": "application/json"
         },
-        credentials: 'include',
+        credentials: "include",
       }).then((payload) => payload.json());
     } catch (error) {
       this.setState({ signupError: "The server isn’t responding." });

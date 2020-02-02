@@ -14,7 +14,7 @@ export default class App extends React.Component {
   constructor() {
     super(...arguments);
 
-    fetch(`${apiURL}/auth-status`, { credentials: 'include' })
+    fetch(`${apiURL}/auth-status`, { credentials: "include" })
     .then((payload) => payload.json())
     .then((data) => this.setState({
       user: data.user || false,
@@ -30,26 +30,26 @@ export default class App extends React.Component {
 
   logOut() {
     fetch(`${apiURL}/logout`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       },
-      credentials: 'include',
+      credentials: "include",
     });
     this.setState({ user: false });
   }
 
   logIn(email, password) {
     return fetch(`${apiURL}/login`, {
-      method: 'POST',
+      method: "POST",
       body: JSON.stringify({
         email,
         password,
       }),
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       },
-      credentials: 'include',
+      credentials: "include",
     })
     .then(response => response.json())
     .then(data => {
