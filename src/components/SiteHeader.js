@@ -8,11 +8,11 @@ class SiteHeader extends React.Component {
   render() {
     let authButtons;
     if (this.props.user) {
-      authButtons = <button onClick={this.props.logOut} className="site-header__link">Log out</button>;
+      authButtons = <button onClick={this.props.logOut} className="site-header__link site-header__link--log-out">Log out</button>;
     } else {
       authButtons = <>
-        <Link to="/log-in" className="site-header__link">Log in</Link>
-        <Link to="/sign-up" className="site-header__link">Sign up</Link>
+        <Link to="/log-in" className="site-header__link site-header__link--log-in">Log in</Link>
+        <Link to="/sign-up" className="site-header__link site-header__link--sign-up">Sign up</Link>
       </>;
     }
 

@@ -1,5 +1,6 @@
 @use "../variables/svg-urls" as svg;
 @use "../mixins/buttons" as button;
+@use "../variables/base-colors" as c;
 
 .site-header {
   display: flex;
@@ -29,8 +30,30 @@
   }
 
   &__link {
-    @include button.navigation;
     color: white;
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+
+    &--log-in,
+    &--sign-up {
+      @include button.hover;
+    }
+
+    &--log-in {
+      background: white;
+      color: c.$blue;
+    }
+
+    &--sign-up {
+      background: c.$blue;
+      color: white;
+    }
+
+    &--log-out {
+      @include button.navigation;
+    }
   }
 }
 

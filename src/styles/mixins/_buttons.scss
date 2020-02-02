@@ -1,11 +1,42 @@
-@mixin navigation {
+@use "../variables/base-colors" as c;
+
+@mixin base {
   text-decoration: none;
   padding: 10px 20px;
-  background-color: rgba(255, 255, 255, 0);
-  transition: background-color 150ms;
+  background-color: rgb(255 255 255 / 0);
   border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+@mixin hover {
+  @include base;
+
+  transition-property:
+   transform,
+   box-shadow
+  ;
+  transition-duration: 0.2s;
+  box-shadow: 0 1px 5px rgba(c.$navy, 0.4);
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    transition-duration: 0.1s;
+    box-shadow: 0 3px 7px rgba(c.$navy, 0.3);
+  }
+
+  &:active {
+    transform: translateY(1px);
+    transition-duration: 0.01s;
+    box-shadow: 0 0 0 rgba(c.$navy, 0.5);
+  }
+}
+
+@mixin navigation {
+  @include base;
+
+  transition: background-color 150ms;
+
+  &:hover {
+    background-color: rgb(255 255 255 / 0.2);
   }
 }
