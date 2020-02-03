@@ -1,4 +1,6 @@
+@use "../variables/base-colors" as c;
 @use "../mixins/typography" as t;
+@use "../mixins/buttons" as button;
 
 .site-content {
   height: 100%;
@@ -10,7 +12,22 @@
   border-bottom-right-radius: 0;
   box-shadow: inset 0 1px 5px rgb(75 90 126 / 0.14);
 
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
   &__title {
     @include t.h2;
+  }
+
+  &__actions {
+    display: flex;
+  }
+
+  &__action {
+    @include button.hover;
+    background: c.$blue;
+    color: c.$white;
   }
 }

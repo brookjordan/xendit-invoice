@@ -22,7 +22,13 @@ class App extends React.Component {
   render() {
     let refunds = this.state.refunds || [];
     return <>
-      <h2 className="site-content__title">refunds</h2>
+      <header className="site-content__header">
+        <h2 className="site-content__title">Refunds</h2>
+
+        <div className="site-content__actions">
+          <button className="site-content__action">Create new refund</button>
+        </div>
+      </header>
 
       <ul className="card-list">{
         refunds.map(refund => (

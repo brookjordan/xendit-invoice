@@ -22,7 +22,13 @@ class App extends React.Component {
   render() {
     let invoices = this.state.invoices || [];
     return <>
-      <h2 className="site-content__title">Invoices</h2>
+      <header className="site-content__header">
+        <h2 className="site-content__title">Invoices</h2>
+
+        <div className="site-content__actions">
+          <button className="site-content__action">Create new invoice</button>
+        </div>
+      </header>
 
       <ul className="card-list">{
         invoices.map(invoice => (

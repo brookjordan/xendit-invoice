@@ -52,34 +52,38 @@ class App extends React.Component {
     }
 
     return <li className="card-list__card">
-      <h4 className="card-list__card-title">{refund.label}</h4>
-      <ul>
-        {
-          invoiceLines.map(invoiceLine => {
-            let inner;
-            if (invoiceLine.item) {
-              inner = <>
-                {invoiceLine.item.label}
-                <span> × </span>
-                {invoiceLine.quantity} = ${
-                  isNaN(invoiceLine.quantity * invoiceLine.item.price)
-                    ? "—"
-                    : Math.round(invoiceLine.quantity * invoiceLine.item.price * 100) / 100
-                }
-              </>;
-            } else {
-              inner = "…"
-            }
+      <div class="card-list__card-body">
+        <h4 className="card-list__card-title">{refund.label}</h4>
+        <ul>
+          {
+            invoiceLines.map(invoiceLine => {
+              let inner;
+              if (invoiceLine.item) {
+                inner = <>
+                  {invoiceLine.item.label}
+                  <span> × </span>
+                  {invoiceLine.quantity} = ${
+                    isNaN(invoiceLine.quantity * invoiceLine.item.price)
+                      ? "—"
+                      : Math.round(invoiceLine.quantity * invoiceLine.item.price * 100) / 100
+                  }
+                </>;
+              } else {
+                inner = "…"
+              }
 
-            return (
-              <li key={invoiceLine.id} className="card-list__card-line invoice-line">
-                {inner}
-              </li>
-            )
-          })
-        }
-      </ul>
-      {totalValueElt}
+              return (
+                <li key={invoiceLine.id} className="card-list__card-line invoice-line">
+                  {inner}
+                </li>
+              )
+            })
+          }
+        </ul>
+      </div>
+      <footer class="card-list__card-footer">
+        {totalValueElt}
+      </footer>
     </li>;
   };
 }

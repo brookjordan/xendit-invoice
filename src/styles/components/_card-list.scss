@@ -6,11 +6,22 @@
   margin: 0 -10px;
 
   &__card {
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 15px;
     margin: 10px;
     background: c.$white;
     border-radius: 5px;
     box-shadow: 0 1px 5px rgb(75 90 126 / 0.14);
+  }
+
+  &__card-body {
+    flex-grow: 1;
+    flex-shrink: 0;
+  }
+
+  &__card-footer {
+    flex-shrink: 0;
   }
 
   &__card-title {
