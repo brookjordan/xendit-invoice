@@ -65,7 +65,7 @@ export default class App extends React.Component {
       <Router>
         <div className="app-layout">
           <div className="app-layout__main">
-            <SiteContent logIn={this.logIn} />
+            <SiteContent user={this.state.user} logIn={this.logIn} />
           </div>
 
           <div className="app-layout__header">
@@ -73,7 +73,7 @@ export default class App extends React.Component {
           </div>
 
           <div className="app-layout__navigation">
-            <SiteNavigation />
+            <SiteNavigation user={this.state.user} />
           </div>
 
           <div className="app-layout__footer">

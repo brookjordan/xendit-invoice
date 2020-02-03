@@ -46,7 +46,7 @@ class App extends React.Component {
           </Route>
 
           <Route path="/">
-            <Home />
+            <Home user={this.props.user} />
           </Route>
         </Switch>
       </main>

@@ -4,15 +4,17 @@ import "../styles/app.scss";
 
 class App extends React.Component {
   render() {
-    return (
-      <nav className="site-navigation">
-        <Link to="/items" className="site-navigation__link">Items</Link>
-        <Link to="/invoices" className="site-navigation__link">Invoices</Link>
-        <Link to="/payments" className="site-navigation__link">Payments</Link>
-        <Link to="/refunds" className="site-navigation__link">Refunds</Link>
-        <Link to="/customers" className="site-navigation__link">Customers</Link>
-      </nav>
-    );
+    let linkClass = this.props.user
+      ? "site-navigation__link"
+      : "site-navigation__link site-navigation__link--disabled";
+
+    return <nav className="site-navigation">
+      <Link to="/items" className={linkClass}>Items</Link>
+      <Link to="/invoices" className={linkClass}>Invoices</Link>
+      <Link to="/payments" className={linkClass}>Payments</Link>
+      <Link to="/refunds" className={linkClass}>Refunds</Link>
+      <Link to="/customers" className={linkClass}>Customers</Link>
+    </nav>;
   };
 }
 

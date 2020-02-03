@@ -8,6 +8,12 @@
     @include button.transparent;
     display: block;
     color: c.$white;
+    transition: opacity 0.2s;
+
+    &--disabled {
+      pointer-events: none;
+      opacity: 0.3;
+    }
 
     &:not(:first-child) {
       margin-top: 10px;
