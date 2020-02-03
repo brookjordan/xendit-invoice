@@ -1,7 +1,5 @@
 import React from "react";
-import {
-  Link,
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../styles/app.scss";
 
 class SiteHeader extends React.Component {
@@ -20,7 +18,9 @@ class SiteHeader extends React.Component {
       <header className="site-header">
         <div className="site-header__site-details">
           <h1 className="site-header__company-name" aria-label="Xendit"></h1>
-          <h2 className="site-header__app-name">Invoices</h2>
+          <h2 className="site-header__app-name">
+            <Link to="/">Invoices</Link>
+          </h2>
         </div>
 
         <div className="site-header__account">

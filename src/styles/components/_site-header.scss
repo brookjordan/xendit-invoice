@@ -34,6 +34,11 @@
     color: c.$white;
     font-size: 30px;
     font-weight: 600;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
   }
 
   &__link {

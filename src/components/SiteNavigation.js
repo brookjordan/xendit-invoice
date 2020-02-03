@@ -1,7 +1,5 @@
 import React from "react";
-import {
-  Link,
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../styles/app.scss";
 
 class App extends React.Component {
@@ -13,7 +11,6 @@ class App extends React.Component {
         <Link to="/payments" className="site-navigation__link">Payments</Link>
         <Link to="/refunds" className="site-navigation__link">Refunds</Link>
         <Link to="/customers" className="site-navigation__link">Customers</Link>
-        <Link to="/" className="site-navigation__link">Home</Link>
       </nav>
     );
   };
