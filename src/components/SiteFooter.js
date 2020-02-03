@@ -5,7 +5,7 @@ class App extends React.Component {
     return (
       <footer className="site-footer">
         <p>Built and “maintained” (lol) by Brook Jordan</p>
-        <p>© Brook Jordan 2020</p>
+        <p>© Xendit 2020</p>
       </footer>
     );
   };
