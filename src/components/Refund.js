@@ -35,13 +35,13 @@ class App extends React.Component {
     let refund = this.props.refund || {};
     let invoiceLines = this.state.invoiceLines || [];
     let totalValueElt = (
-      <p class="card-list__card-title">
+      <p className="card-list__card-title">
         Total: …
       </p>
     );
 
     if (invoiceLines.every(line => !!line.item)) {
-      totalValueElt = <p class="card-list__card-title">
+      totalValueElt = <p className="card-list__card-title">
         Total: ${
           Math.round(
             invoiceLines.reduce((acc, line) => acc + line.quantity * line.item.price, 0)
@@ -52,7 +52,7 @@ class App extends React.Component {
     }
 
     return <li className="card-list__card">
-      <div class="card-list__card-body">
+      <div className="card-list__card-body">
         <h4 className="card-list__card-title">{refund.label}</h4>
         <ul>
           {
@@ -81,7 +81,7 @@ class App extends React.Component {
           }
         </ul>
       </div>
-      <footer class="card-list__card-footer">
+      <footer className="card-list__card-footer">
         {totalValueElt}
       </footer>
     </li>;

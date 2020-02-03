@@ -13,6 +13,12 @@
     background: c.$white;
     border-radius: 5px;
     box-shadow: 0 1px 5px rgb(75 90 126 / 0.14);
+
+    &--empty {
+      background: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
   }
 
   &__card-body {
