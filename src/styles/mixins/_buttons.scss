@@ -31,7 +31,21 @@
   }
 }
 
-@mixin navigation {
+@mixin blue-hover {
+  @include hover;
+
+  background: c.$blue;
+  color: c.$white;
+}
+
+@mixin white-hover {
+  @include hover;
+
+  background: c.$white;
+  color: c.$blue;
+}
+
+@mixin transparent {
   @include base;
 
   transition: background-color 150ms;

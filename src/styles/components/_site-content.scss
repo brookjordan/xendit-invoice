@@ -26,7 +26,7 @@
   }
 
   &__action {
-    @include button.hover;
+    @include button.blue-hover;
     background: c.$blue;
     color: c.$white;
   }

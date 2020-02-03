@@ -38,7 +38,7 @@
   }
 
   &__submit {
-    @include button.navigation;
+    @include button.blue-hover;
     width: 100%;
   }
 }

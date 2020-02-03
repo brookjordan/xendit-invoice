@@ -5,7 +5,7 @@
   padding: 10px 0;
 
   &__link {
-    @include button.navigation;
+    @include button.transparent;
     display: block;
     color: c.$white;
 

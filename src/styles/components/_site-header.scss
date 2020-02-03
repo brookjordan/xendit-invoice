@@ -49,23 +49,20 @@
       margin-right: 10px;
     }
 
-    &--log-in,
-    &--sign-up {
-      @include button.hover;
-    }
-
     &--log-in {
+      @include button.white-hover;
       background: c.$white;
       color: c.$blue;
     }
 
     &--sign-up {
+      @include button.blue-hover;
       background: c.$blue;
       color: c.$white;
     }
 
     &--log-out {
-      @include button.navigation;
+      @include button.transparent;
     }
   }
 }
