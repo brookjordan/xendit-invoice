@@ -1,0 +1,20 @@
+@use "../variables/base-colors" as c;
+
+@mixin h2 {
+  margin-top: 30px;
+  font-size: 30px;
+  font-weight: 600;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+@mixin p {
+  margin-top: 15px;
+  color: c.$gray-2;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}

@@ -1,0 +1,11 @@
+@use "../mixins/typography" as t;
+
+.body-text {
+  h2 {
+    @include t.h2;
+  }
+
+  p {
+    @include t.p;
+  }
+}

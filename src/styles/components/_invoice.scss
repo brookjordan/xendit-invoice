@@ -1,17 +1,19 @@
-.all-invoices {
+@use "../variables/base-colors" as c;
+
+.card-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   margin: 0 -10px;
-}
 
-.invoice-card {
-  padding: 10px;
-  margin: 10px;
-  background: white;
-  border-radius: 5px;
-  box-shadow: 0 1px 5px rgb(75 90 126 / 0.14);
+  &__card {
+    padding: 10px;
+    margin: 10px;
+    background: c.$white;
+    border-radius: 5px;
+    box-shadow: 0 1px 5px rgb(75 90 126 / 0.14);
+  }
 
-  &__title {
+  &__card-title {
     padding: 10px 0;
     font-weight: 600;
   }

@@ -1,7 +1,9 @@
+@use "../variables/base-colors" as c;
+
 .site-footer {
   display: flex;
   justify-content: space-between;
-  color: white;
+  color: c.$white;
   padding: 10px 20px;
   padding-left: 0;
   font-size: 12px;

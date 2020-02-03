@@ -1,8 +1,6 @@
 @use "elements/resets";
 @use "elements/base";
-
-@use "objects/root";
-@use "objects/app-layout";
+@use "elements/text";
 
 @use "components/site-header";
 @use "components/site-navigation";
@@ -10,3 +8,7 @@
 @use "components/site-content";
 @use "components/invoice";
 @use "components/details-form";
+
+@use "objects/root";
+@use "objects/app-layout";
+@use "objects/body-text";

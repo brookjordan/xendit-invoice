@@ -3,7 +3,8 @@ import React from "react";
 class App extends React.Component {
   render() {
     return <>
-      <h2>Items</h2>
+      <h2 className="site-content__title">Items</h2>
+
       <ul>
         <li>Item 1</li>
         <li>Item 2</li>

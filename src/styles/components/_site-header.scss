@@ -31,13 +31,13 @@
   }
 
   &__app-name {
-    color: white;
+    color: c.$white;
     font-size: 30px;
     font-weight: 600;
   }
 
   &__link {
-    color: white;
+    color: c.$white;
     text-align: center;
 
     &:not(:last-child) {
@@ -50,13 +50,13 @@
     }
 
     &--log-in {
-      background: white;
+      background: c.$white;
       color: c.$blue;
     }
 
     &--sign-up {
       background: c.$blue;
-      color: white;
+      color: c.$white;
     }
 
     &--log-out {

@@ -22,8 +22,9 @@ class App extends React.Component {
   render() {
     let invoices = this.state.invoices || [];
     return <>
-      <h2>Invoices</h2>
-      <ul className="all-invoices">{
+      <h2 className="site-content__title">Invoices</h2>
+
+      <ul className="card-list">{
         invoices.map(invoice => (
           <Invoice key={invoice.id} invoice={invoice} />
         ))

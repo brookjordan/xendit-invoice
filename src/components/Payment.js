@@ -11,7 +11,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`${apiURL}/invoice_line/invoice/${this.props.invoice.id}`, { credentials: "include" })
+    fetch(`${apiURL}/invoice_line/invoice/${this.props.payment.id}`, { credentials: "include" })
     .then((invoiceLineDataBuffer) => invoiceLineDataBuffer.json())
     .then(invoiceLineData => {
       this.setState({ invoiceLines: invoiceLineData });
@@ -32,7 +32,7 @@ class App extends React.Component {
   }
 
   render() {
-    let invoice = this.props.invoice || {};
+    let payment = this.props.payment || {};
     let invoiceLines = this.state.invoiceLines || [];
     let totalValueElt = (
       <p class="card-list__card-title">
@@ -52,7 +52,7 @@ class App extends React.Component {
     }
 
     return <li className="card-list__card">
-      <h4 className="card-list__card-title">{invoice.label}</h4>
+      <h4 className="card-list__card-title">{payment.label}</h4>
       <ul>
         {
           invoiceLines.map(invoiceLine => {

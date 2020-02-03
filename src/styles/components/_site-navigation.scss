@@ -1,3 +1,4 @@
+@use "../variables/base-colors" as c;
 @use "../mixins/buttons" as button;
 
 .site-navigation {
@@ -6,7 +7,7 @@
   &__link {
     @include button.navigation;
     display: block;
-    color: white;
+    color: c.$white;
 
     &:not(:first-child) {
       margin-top: 10px;

@@ -1,20 +1,34 @@
 import React from "react";
+import Payment from "./Payment";
+import { apiURL } from "../helpers/base-url";
 
 class App extends React.Component {
+  constructor() {
+    super(...arguments);
+
+    this.state = {
+      payments: null,
+    };
+  }
+
+  componentDidMount() {
+    fetch(`${apiURL}/payment`, { credentials: "include" })
+    .then((paymentDataBuffer) => paymentDataBuffer.json())
+    .then(paymentData => {
+      this.setState({ payments: paymentData });
+    });
+  }
+
   render() {
+    let payments = this.state.payments || [];
     return <>
-      <h2>Payments</h2>
-      <ul>
-        <li>Payment 1</li>
-        <li>Payment 2</li>
-        <li>Payment 3</li>
-        <li>Payment 4</li>
-        <li>Payment 5</li>
-        <li>Payment 6</li>
-        <li>Payment 7</li>
-        <li>Payment 8</li>
-        <li>Payment 9</li>
-      </ul>
+      <h2 className="site-content__title">Payments</h2>
+
+      <ul className="card-list">{
+        payments.map(payment => (
+          <Payment key={payment.id} payment={payment} />
+        ))
+      }</ul>
     </>;
   };
 }
