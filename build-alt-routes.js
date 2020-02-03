@@ -24,4 +24,8 @@ fs.readFile(path.join(buildDirectory, "index.html"), (err, data) => {
       console.log(`Done with ${route}`);
     });
   });
+
+  fs.writeFile(path.join(buildDirectory, "404.html"), contents, function(error, data) {
+    console.log(`built 404`);
+  });
 });
