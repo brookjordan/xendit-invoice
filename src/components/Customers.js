@@ -36,7 +36,7 @@ class App extends React.Component {
             <div className="card-list__card-body">
               <h4 className="card-list__card-title" style={{ overflowWrap: "break-word" }}>{account.name}</h4>
               <ul>
-                <li className="card-list__card-line invoice-line" style={{ marginTop: "15px", overflowWrap: "break-word" }}>
+                <li className="card-list__card-line" style={{ marginTop: "15px", overflowWrap: "break-word" }}>
                 {account.email}
                 </li>
               </ul>

@@ -1,7 +1,5 @@
 import React from "react";
-import {
-  Redirect,
-} from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { apiURL } from "../helpers/base-url";
 
 class App extends React.Component {
@@ -36,27 +34,16 @@ class App extends React.Component {
     }
     // End old browser stuff
 
-    let response;
+    let payload;
     try {
-      response = await fetch(`${apiURL}/account`, {
-        method: "POST",
-        body: JSON.stringify({
-          name,
-          email,
-          password,
-        }),
-        headers: {
-          "Content-Type": "application/json"
-        },
-        credentials: "include",
-      }).then((payload) => payload.json());
+      payload = await this.props.signUp(name, email, password);
     } catch (error) {
       this.setState({ signupError: "The server isn’t responding." });
       throw error;
     }
 
-    if (response.error) {
-      this.setState({ signupError: response.error });
+    if (payload.error) {
+      this.setState({ signupError: payload.error });
     } else {
       this.setState({ signupWasSuccessful: true });
     }
@@ -70,7 +57,7 @@ class App extends React.Component {
 
   render() {
     if (this.state.signupWasSuccessful === true) {
-      return <Redirect to="/" />
+      return <Redirect to="/log-in" />
     }
 
     return (

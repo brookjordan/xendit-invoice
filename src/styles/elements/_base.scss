@@ -1,10 +1,4 @@
-@use "../variables/base-colors" as c;
-
-html {
-  font-family: "Montserrat", "Roboto", sans-serif;
-  font-size: 20px;
-  color: c.$black;
-}
+@use "../variables/brand-colors" as c;
 
 html,
 body {
@@ -12,4 +6,14 @@ body {
   height: 100%;
   overflow: hidden;
   background-image: linear-gradient(to bottom right, c.$blue-gradient);
+}
+
+html {
+  font-family: "Montserrat", "Roboto", sans-serif;
+  font-size: 20px;
+  color: c.$black;
+}
+
+body {
+	line-height: 1.4;
 }

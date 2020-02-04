@@ -1,9 +1,19 @@
-@use "../variables/base-colors" as c;
+@use "../variables/brand-colors" as c;
+@use "../mixins/buttons" as button;
 
 .card-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   margin: 0 -10px;
+  grid-template-columns: 100%; //  1fr doesn’t seem to work 🤔
+
+  @media (min-width: 600px) {
+    grid-template-columns:
+      repeat(
+        auto-fit,
+        minmax(250px, 1fr)
+      )
+    ;
+  }
 
   &__card {
     display: flex;
@@ -27,12 +37,67 @@
     flex-shrink: 0;
   }
 
+  &__card-line {
+    margin-top: 5px;
+
+    &--input {
+      display: flex;
+    }
+  }
+
+  &__card-line-label {
+    flex-basis: auto;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+
+  &__card-line-input {
+    position: relative;
+    flex-basis: 0;
+    flex-grow: 1;
+    height: 28px;
+    margin-left: 10px;
+
+    input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      box-shadow: inset 0 0 0 rgba(c.$black, 0);
+      transition: box-shadow 0.15s;
+      text-indent: 5px;
+      border-radius: 5px;
+
+      &:focus {
+        outline: 0;
+        box-shadow: inset 0 1px 3px rgba(c.$black, 0.3);
+      }
+    }
+  }
+
   &__card-footer {
     flex-shrink: 0;
+  }
+
+  &__card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+
+  &__card-delete {
+    @include button.blue-hover;
   }
 
   &__card-title {
     padding: 10px 0;
     font-weight: 600;
+  }
+
+  &__add-another {
+    @include button.white-hover;
+    width: 100%;
   }
 }

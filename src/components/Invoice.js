@@ -14,19 +14,18 @@ class App extends React.Component {
     fetch(`${apiURL}/invoice_line/invoice/${this.props.invoice.id}`, { credentials: "include" })
     .then((invoiceLineDataBuffer) => invoiceLineDataBuffer.json())
     .then(invoiceLineData => {
-      this.setState({ invoiceLines: invoiceLineData });
-      invoiceLineData.forEach((invoiceLine) => {
+      let { invoiceLines } = invoiceLineData;
+      this.setState({ invoiceLines: invoiceLines });
+      invoiceLines.forEach(async (invoiceLine) => {
         if (invoiceLine.item) { return; }
 
-        fetch(`${apiURL}/item/${invoiceLine.item_id}`, { credentials: "include" })
-        .then((itemDataBuffer) => itemDataBuffer.json())
-        .then((itemData) => {
-          invoiceLine.item = {
-            ...itemData,
-            id: invoiceLine.item_id,
-          };
-          this.setState({ invoiceLines: this.state.invoiceLines });
-        });
+        let itemData = await fetch(`${apiURL}/item/${invoiceLine.item_id}`, { credentials: "include" })
+        .then((itemDataBuffer) => itemDataBuffer.json());
+        invoiceLine.item = {
+          ...itemData,
+          id: invoiceLine.item_id,
+        };
+        this.setState({ invoiceLines: this.state.invoiceLines });
       });
     });
   }
@@ -73,7 +72,7 @@ class App extends React.Component {
               }
 
               return (
-                <li key={invoiceLine.id} className="card-list__card-line invoice-line">
+                <li key={invoiceLine.id} className="card-list__card-line">
                   {inner}
                 </li>
               )

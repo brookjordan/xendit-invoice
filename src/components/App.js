@@ -22,6 +22,7 @@ export default class App extends React.Component {
 
     this.logOut = this.logOut.bind(this);
     this.logIn = this.logIn.bind(this);
+    this.signUp = this.signUp.bind(this);
 
     this.state = {
       user: false,
@@ -39,8 +40,8 @@ export default class App extends React.Component {
     this.setState({ user: false });
   }
 
-  logIn(email, password) {
-    return fetch(`${apiURL}/login`, {
+  async logIn(email, password) {
+    let data = await fetch(`${apiURL}/login`, {
       method: "POST",
       body: JSON.stringify({
         email,
@@ -50,14 +51,36 @@ export default class App extends React.Component {
         "Content-Type": "application/json"
       },
       credentials: "include",
-    })
-    .then(response => response.json())
-    .then(data => {
-      if (!data.error && data.user) {
-        this.setState({ user: data.user });
-      }
-      return data;
-    });
+    }).then(response => response.json());
+
+    if (!data.error && data.user) {
+      this.setState({ user: data.user });
+    }
+
+    return data;
+  }
+
+  async signUp(name, email, password) {
+    let data;
+    try {
+      data = await fetch(`${apiURL}/account`, {
+        method: "POST",
+        body: JSON.stringify({
+          name,
+          email,
+          password,
+        }),
+        headers: {
+          "Content-Type": "application/json"
+        },
+        credentials: "include",
+      }).then((payload) => payload.json());
+    } catch (error) {
+      this.setState({ signupError: "The server isn’t responding." });
+      throw error;
+    }
+
+    return data;
   }
 
   render() {
@@ -65,7 +88,7 @@ export default class App extends React.Component {
       <Router>
         <div className="app-layout">
           <div className="app-layout__main">
-            <SiteContent user={this.state.user} logIn={this.logIn} />
+            <SiteContent user={this.state.user} logIn={this.logIn} signUp={this.signUp} />
           </div>
 
           <div className="app-layout__header">

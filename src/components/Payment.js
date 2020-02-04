@@ -73,7 +73,7 @@ class App extends React.Component {
               }
 
               return (
-                <li key={invoiceLine.id} className="card-list__card-line invoice-line">
+                <li key={invoiceLine.id} className="card-list__card-line">
                   {inner}
                 </li>
               )

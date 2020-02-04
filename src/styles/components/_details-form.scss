@@ -1,4 +1,4 @@
-@use "../variables/base-colors" as c;
+@use "../variables/brand-colors" as c;
 @use "../mixins/buttons" as button;
 
 .details-form {
@@ -12,7 +12,7 @@
   }
 
   &__error {
-    color: red;
+    color: c.$red;
     margin-top: 15px;
 
     &:empty {

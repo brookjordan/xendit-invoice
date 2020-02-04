@@ -1,5 +1,6 @@
 import React from "react";
 import Invoice from "./Invoice";
+import { Link } from "react-router-dom";
 import { apiURL } from "../helpers/base-url";
 
 class App extends React.Component {
@@ -12,10 +13,12 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    console.log(this);
     fetch(`${apiURL}/invoice`, { credentials: "include" })
     .then((invoiceDataBuffer) => invoiceDataBuffer.json())
     .then(invoiceData => {
-      this.setState({ invoices: invoiceData });
+      console.log(invoiceData);
+      this.setState({ invoices: invoiceData.invoices });
     });
   }
 
@@ -26,7 +29,7 @@ class App extends React.Component {
         <h2 className="site-content__title">Invoices</h2>
 
         <div className="site-content__actions">
-          <button className="site-content__action">Create new invoice</button>
+          <Link to="/create-invoice" className="site-content__action">Create new invoice</Link>
         </div>
       </header>
 
