@@ -127,7 +127,7 @@ class App extends React.Component {
                 className="card-list__card-title"
                 onChange={event => this.updateItem(line, event.currentTarget)}
               >
-                <option value="0" disabled>Select an item</option>
+                <option value="0" hidden>Select an item</option>
                 {items.map(item =>
                   <option value={item.id} label={item.label} key={item.id} />
                 )}
