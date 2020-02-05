@@ -1,0 +1,19 @@
+@use "sass:list" as list;
+@use "sass:map" as map;
+@use "../variables/brand-colors" as c;
+
+$gradients: (
+  sunrise: (c.$ocean, c.$carrot),
+  burn: (c.$ocean, c.$rose),
+  ether: (c.$ocean, c.$lilac),
+  shore: (c.$ocean, c.$sky),
+  haze: (c.$ocean, hsl(184, 61%, 46%)),
+  meadow: (c.$ocean, c.$mint),
+
+  over-ocean: (c.$ocean, transparent),
+);
+
+@function linear ($name, $from: 0, $to: 100%, $direction: to bottom right) {
+  $colors: map.get($gradients, $name);
+  @return unquote("linear-gradient(#{$direction}, #{list.nth($colors, 1)} #{$from}, #{list.nth($colors, 2)} #{$to})");
+}

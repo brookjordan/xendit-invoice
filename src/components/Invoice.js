@@ -11,6 +11,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    document.documentElement.style
+      .setProperty("--site-bg", "var(--c-invoice)");
+
     fetch(`${apiURL}/invoice_line/invoice/${this.props.invoice.id}`, { credentials: "include" })
     .then((invoiceLineDataBuffer) => invoiceLineDataBuffer.json())
     .then(invoiceLineData => {

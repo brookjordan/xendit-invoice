@@ -33,7 +33,7 @@
 
   &__action {
     @include button.blue-hover;
-    background: c.$blue;
+    background: c.$ocean;
     color: c.$white;
   }
 
@@ -44,7 +44,7 @@
   }
 
   &__error {
-    color: c.$red;
+    color: c.$rose;
     margin-top: 15px;
 
     &:empty {

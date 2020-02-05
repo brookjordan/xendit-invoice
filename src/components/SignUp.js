@@ -1,6 +1,5 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import { apiURL } from "../helpers/base-url";
 
 class App extends React.Component {
   constructor() {
@@ -13,6 +12,11 @@ class App extends React.Component {
       signupError: "",
       signupWasSuccessful: false,
     };
+  }
+
+  componentDidMount() {
+    document.documentElement.style
+      .setProperty("--site-bg", "var(--c-home)");
   }
 
   async submitForm(event) {

@@ -34,7 +34,7 @@
 @mixin blue-hover {
   @include hover;
 
-  background: c.$blue;
+  background: c.$ocean;
   color: c.$white;
 }
 
@@ -42,7 +42,7 @@
   @include hover;
 
   background: c.$white;
-  color: c.$blue;
+  color: c.$ocean;
 }
 
 @mixin transparent {

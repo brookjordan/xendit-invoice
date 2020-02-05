@@ -52,12 +52,12 @@
     &--log-in {
       @include button.white-hover;
       background: c.$white;
-      color: c.$blue;
+      color: c.$ocean;
     }
 
     &--sign-up {
       @include button.blue-hover;
-      background: c.$blue;
+      background: c.$ocean;
       color: c.$white;
     }
 

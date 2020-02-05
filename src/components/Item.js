@@ -9,6 +9,11 @@ class App extends React.Component {
     };
   }
 
+  componentDidMount() {
+    document.documentElement.style
+      .setProperty("--site-bg", "var(--c-item)");
+  }
+
   render() {
     let item = this.props.item || {};
 

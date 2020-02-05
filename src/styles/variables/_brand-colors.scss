@@ -1,9 +1,14 @@
-$blue: #4373fc;
-$black: #233659; // body / heading text
-$gray-2: #4b5a7e; // paragraph on light
-$gray-3: #737b8b; // paragraph on white
-$white: #ebf4ff;
-$red: #d4525c;
+// Grays
+$black: hsl(219, 44%, 24%); // body / heading text
+$gray-2: hsl(222, 25%, 39%); // paragraph on light
+$gray-3: hsl(220, 9%, 50%); // paragraph on white
+$white: hsl(213, 99%, 96%);
 
-$blue-gradient: #457ef3, #02cf99;
-//$blue-gradient: #457ef3, #2eb1bb;
+// Colours
+$carrot: hsl(19, 99%, 66%);
+$rose: hsl(355, 60%, 58%);
+$lilac: hsl(265, 60%, 63%);
+$navy: hsl(227, 73%, 37%);
+$ocean: hsl(224, 97%, 63%);
+$sky: hsl(197, 99%, 47%);
+$mint: hsl(164, 99%, 41%);

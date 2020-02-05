@@ -12,6 +12,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    document.documentElement.style
+      .setProperty("--site-bg", "var(--c-payment)");
+
     fetch(`${apiURL}/payment`, { credentials: "include" })
     .then((paymentDataBuffer) => paymentDataBuffer.json())
     .then(paymentData => {

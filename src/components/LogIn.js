@@ -15,6 +15,11 @@ class App extends React.Component {
     };
   }
 
+  componentDidMount() {
+    document.documentElement.style
+      .setProperty("--site-bg", "var(--c-home)");
+  }
+
   async submitForm(event) {
     event.preventDefault();
     let {

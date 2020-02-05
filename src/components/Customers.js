@@ -11,6 +11,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    document.documentElement.style
+      .setProperty("--site-bg", "var(--c-customer)");
+
     fetch(`${apiURL}/account`, { credentials: "include" })
     .then((accountDataBuffer) => accountDataBuffer.json())
     .then(accountData => {

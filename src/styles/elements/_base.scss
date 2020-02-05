@@ -1,19 +1,33 @@
 @use "../variables/brand-colors" as c;
+@use "../mixins/gradient" as g;
+
+:root {
+  --c-invoice: #{c.$carrot};
+  --c-refund: #{c.$rose};
+  --c-customer: #{c.$lilac};
+  --c-home: #{c.$sky};
+  --c-payment: #{c.$mint};
+  --c-item: hsl(184, 61%, 46%);
+}
 
 html,
 body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-image: linear-gradient(to bottom right, c.$blue-gradient);
 }
 
 html {
   font-family: "Montserrat", "Roboto", sans-serif;
   font-size: 20px;
   color: c.$black;
+  background-color: c.$mint;
+  background-color: var(--site-bg, c.$sky);
+  transition: background-color 1s;
+  will-change: background-color;
 }
 
 body {
 	line-height: 1.4;
+  background-image: g.linear(over-ocean, $to: 85%);
 }

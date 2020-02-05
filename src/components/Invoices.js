@@ -13,11 +13,12 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this);
+    document.documentElement.style
+      .setProperty("--site-bg", "var(--c-invoice)");
+
     fetch(`${apiURL}/invoice`, { credentials: "include" })
     .then((invoiceDataBuffer) => invoiceDataBuffer.json())
     .then(invoiceData => {
-      console.log(invoiceData);
       this.setState({ invoices: invoiceData.invoices });
     });
   }

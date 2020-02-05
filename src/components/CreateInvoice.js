@@ -22,6 +22,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    document.documentElement.style
+      .setProperty("--site-bg", "var(--c-invoice)");
+
     fetch(`${apiURL}/item`, { credentials: "include" })
     .then((itemDataBuffer) => itemDataBuffer.json())
     .then(itemData => {
@@ -78,7 +81,7 @@ class App extends React.Component {
       quantity: line.quantity,
     }));
 
-    let response = await fetch(`${apiURL}/invoice`, {
+    await fetch(`${apiURL}/invoice`, {
       method: "POST",
       body: JSON.stringify({
         // TODO: deal with these properly

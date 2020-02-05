@@ -12,6 +12,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    document.documentElement.style
+      .setProperty("--site-bg", "var(--c-refund)");
+
     fetch(`${apiURL}/refund`, { credentials: "include" })
     .then((refundDataBuffer) => refundDataBuffer.json())
     .then(refundData => {

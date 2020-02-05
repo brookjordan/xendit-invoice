@@ -12,6 +12,11 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    document.documentElement.style
+      .setProperty("--site-bg", "var(--c-item)");
+  }
+
+  componentDidMount() {
     fetch(`${apiURL}/item`, { credentials: "include" })
     .then((itemDataBuffer) => itemDataBuffer.json())
     .then(itemData => {
@@ -21,7 +26,6 @@ class App extends React.Component {
 
   render() {
     let items = this.state.items || [];
-    debugger;
     return <>
       <header className="site-content__header">
         <h2 className="site-content__title">Items</h2>

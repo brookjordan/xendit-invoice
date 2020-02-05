@@ -11,11 +11,14 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    document.documentElement.style
+      .setProperty("--site-bg", "var(--c-refund)");
+
     fetch(`${apiURL}/invoice_line/invoice/${this.props.refund.id}`, { credentials: "include" })
     .then((invoiceLineDataBuffer) => invoiceLineDataBuffer.json())
     .then(invoiceLineData => {
-      this.setState({ invoiceLines: invoiceLineData });
-      invoiceLineData.forEach((invoiceLine) => {
+      this.setState({ invoiceLines: invoiceLineData.invoiceLines });
+      invoiceLineData.invoiceLines.forEach((invoiceLine) => {
         if (invoiceLine.item) { return; }
 
         fetch(`${apiURL}/item/${invoiceLine.item_id}`, { credentials: "include" })
